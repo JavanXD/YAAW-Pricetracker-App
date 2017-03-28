@@ -17,7 +17,7 @@
 	<plugin name="phonegap-webintent" source="npm" spec="~0.0.2" /> 
 
 		<config-file platform="android" parent="/manifest/application" mode="merge">
-			<activity android:label="@string/app_name" android:name="de.javan.yaaw.YAAW_de" android:screenOrientation="unspecified" android:configChanges="locale|keyboard|keyboardHidden|orientation|screenSize" android:windowSoftInputMode="0">
+			<activity android:label="@string/app_name" android:name="de.javan.yaaw.YAAW_de">
 				<intent-filter>
 					<action android:name="android.intent.action.MAIN" />
 					<category android:name="android.intent.category.LAUNCHER" />
