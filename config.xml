@@ -18,12 +18,16 @@
 	<!--<config-file platform="android" parent="/manifest/application" mode="add">
 		
 	</config-file>-->
-		<gap:config-file platform="android" target="AndroidManifest.xml" parent="application/activity">
-			<intent-filter>
-				<action android:name="android.intent.action.SEND" />
-				<category android:name="android.intent.category.DEFAULT" />
-			</intent-filter>
-		</gap:config-file>
+		<config-file platform="android" parent="/manifest/application" mode="merge">
+			<activity android:label="@string/app_name" android:name="de.javan.yaaw.YAAW_de">
+
+				<intent-filter>
+					<action android:name="android.intent.action.SEND" />
+					<category android:name="android.intent.category.DEFAULT" />
+				</intent-filter>
+			</activity>
+
+		</config-file>
 
 	<icon src="icon.png"/>
 	<platform name="ios">
