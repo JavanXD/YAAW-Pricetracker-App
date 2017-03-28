@@ -20,7 +20,7 @@
 				<!-- Share empfangen -->
 				<activity
 				android:label="@string/app_name" 
-				android:name="de.javan.yaaw.YAAW_de"
+				android:name="WebIntent"
 				android:configChanges="orientation|keyboardHidden"
 				>
 				<intent-filter> 
