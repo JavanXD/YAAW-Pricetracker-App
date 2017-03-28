@@ -16,26 +16,28 @@
 	<plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0"/>
 	<plugin name="phonegap-webintent" source="npm" spec="~0.0.2" /> 
 	
-		<config-file platform="android" parent="/manifest/application" mode="replace">
-				<!-- Share empfangen -->
-				<activity
-				android:label="YAAW.de" 
-				android:name="de.javan.yaaw.YAAW_de"
-				android:screenOrientation="unspecified"
-				android:configChanges="locale|keyboard|keyboardHidden|orientation|screenSize"
-				>
-				<intent-filter>
-					<action android:name="android.intent.action.MAIN" />
-					<category android:name="android.intent.category.LAUNCHER" />
-				</intent-filter>
-				<intent-filter> 
-					<action android:name="android.intent.action.SEND" />
-					<category android:name="android.intent.category.DEFAULT" />
-					<data android:mimeType="text/plain" />
-				</intent-filter> 
-			</activity>
-		</config-file>
-
+	<!-- Change AndroidManifest.xml -->
+	<config-file platform="android" parent="/manifest/application" mode="replace">
+		<activity
+		android:label="YAAW.de" 
+		android:name="de.javan.yaaw.YAAW_de"
+		android:screenOrientation="unspecified"
+		android:configChanges="locale|keyboard|keyboardHidden|orientation|screenSize"
+		>
+			<!-- App im Menü -->
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+			<!-- Share empfangen -->
+			<intent-filter> 
+				<action android:name="android.intent.action.SEND" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<data android:mimeType="text/plain" />
+			</intent-filter> 
+		</activity>
+	</config-file>
+	
 	<icon src="icon.png"/>
 	<platform name="ios">
         <icon src="res/icons/ios/icon-small.png" width="29" height="29" />
