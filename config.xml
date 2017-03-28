@@ -16,10 +16,10 @@
 	<plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0"/>
 	<plugin name="phonegap-webintent" source="npm" spec="~0.0.2" /> 
 
-		<config-file platform="android" parent="/manifest/application" mode="merge">
+		<config-file platform="android" parent="/manifest/application" mode="add">
 				<!-- Share empfangen -->
 				<activity
-				android:label="@string/app_name" 
+				android:label="YAAW.de" 
 				android:name="de.javan.yaaw.WebIntent"
 				>
 				<intent-filter>
