@@ -66,16 +66,24 @@
 			vibration(100);
 		}
 		
-		// Receive intent from another app
-		window.plugins.webintent.getUri(function(url) {
-			if(url !== "") {
-				// url is the url the intent was launched with
-				alert(url);
-			}
-		});
 		
-		window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT, function (url) {
-              alert(url);
-        }, function() { //Fail
-              alert ("error");          
-		});
+		
+		function deviceReady() {
+			
+			// Receive intent from another app
+			window.plugins.webintent.getUri(function(url) {
+				if(url !== "") {
+					// url is the url the intent was launched with
+					alert(url);
+				}
+			});
+			
+			window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT, function (url) {
+				alert(url);
+			}, function() { //Fail
+				  alert ("error");          
+			});
+		}
+		
+		document.addEventListener("deviceready",deviceReady,false);
+		
