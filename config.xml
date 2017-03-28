@@ -16,7 +16,9 @@
 	<plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0"/>
 	<plugin name="phonegap-webintent" source="npm" spec="~0.0.2" /> 
 	<config-file platform="android" parent="/manifest/application/activity" mode="add">
-
+		<action android:name="android.intent.action.SEND" />
+		<category android:name="android.intent.category.DEFAULT" />
+		<data android:mimeType="text/plain" />
 	</config-file>
 
 	<icon src="icon.png"/>
