@@ -15,12 +15,14 @@
 	<plugin name="cordova-plugin-inappbrowser" source="npm" spec="~1.3.0"/>
 	<plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0"/>
 	<plugin name="phonegap-webintent" source="npm" spec="~0.0.2" /> 
-
-		<config-file platform="android" parent="/manifest/application" mode="add">
+	
+		<config-file platform="android" parent="/manifest/application" mode="replace">
 				<!-- Share empfangen -->
 				<activity
 				android:label="YAAW.de" 
-				android:name="de.javan.yaaw.WebIntent"
+				android:name="de.javan.yaaw.YAAW_de"
+				android:screenOrientation="unspecified"
+				android:configChanges="locale|keyboard|keyboardHidden|orientation|screenSize"
 				>
 				<intent-filter>
 					<action android:name="android.intent.action.MAIN" />
