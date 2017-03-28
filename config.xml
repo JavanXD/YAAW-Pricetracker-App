@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="de.javan.yaaw" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>YAAW.de Pricetracker</name>
+<widget id="de.javan.yaaw" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>YAAW.de</name>
     <description>
         YAAW ist ein Preisbeobachter für Amazon, der dich über positive Preisveränderungen deiner Wunschprodukte informiert.
     </description>
@@ -14,9 +14,8 @@
 	<preference name="android-targetSdkVersion" value="14" />
 	<plugin name="cordova-plugin-inappbrowser" source="npm" spec="~1.3.0"/>
 	<plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0"/>
-	<plugin name="cordova-plugin-console" source="npm" spec="~1.0.2"/>
-	<plugin name="cordova-plugin-dialogs" source="npm" spec="~1.2.0"/>
-	<gap:plugin name="cordova-plugin-spinner" source="npm" />
+	<plugin name="WebIntent" value="com.borismus.webintent.WebIntent" /> 
+	<plugin name="com.borismus.webintent" spec="3.0.0" source="pgb" />
 	<feature name="InAppBrowser">
 		<param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
 	</feature>
