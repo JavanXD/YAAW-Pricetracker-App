@@ -76,8 +76,17 @@
 					// url is the url the intent was launched with
 					alert("Intent1: " +  url);
 					
-					inAppBrowserRef.open('https://www.yaaw.de/?url=' + url, '_blank', options);
+					inAppBrowserRef = cordova.InAppBrowser.open('https://www.yaaw.de/?url=' + url, '_blank', options);
 			
+				}
+			});
+			
+			window.plugins.webintent.onNewIntent(function(url) {
+				if(url !== "" && url != null) {
+					// url is the url the intent was launched with
+					alert("Intent3: " +  url);
+					
+					inAppBrowserRef = cordova.InAppBrowser.open('https://www.yaaw.de/?url=' + url, '_blank', options);
 				}
 			});
 			
@@ -86,20 +95,13 @@
 					// url is the url the intent was launched with
 					alert("Intent2: " +  url + " - " + window.plugins.webintent.EXTRA_TEXT);
 					
-					inAppBrowserRef.open('https://www.yaaw.de/?url=' + url, '_blank', options);
+					inAppBrowserRef = cordova.InAppBrowser.open('https://www.yaaw.de/?url=' + url, '_blank', options);
 				}
-			}, function() { //Fail
-				  alert ("error");          
+			}, function() { 
+				// There was no extra supplied.       
 			});
 			
-			window.plugins.webintent.onNewIntent(function(url) {
-				if(url !== "" && url != null) {
-					// url is the url the intent was launched with
-					alert("Intent3: " +  url);
-					
-					inAppBrowserRef.open('https://www.yaaw.de/?url=' + url, '_blank', options);
-				}
-			});
+			
 		}
 		
 		document.addEventListener("deviceready",deviceReady,false);
