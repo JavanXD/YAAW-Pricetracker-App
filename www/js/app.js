@@ -90,16 +90,17 @@
 				}
 			});
 			
-			window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT, function (url) {
-				if(url !== "" && url != null) {
-					// url is the url the intent was launched with
-					alert("Intent2: " +  url + " - " + window.plugins.webintent.EXTRA_TEXT);
-					
-					inAppBrowserRef = cordova.InAppBrowser.open('https://www.yaaw.de/?url=' + url, '_blank', options);
-				}
-			}, function() { 
-				// There was no extra supplied.       
-			});
+			window.plugins.webintent.getExtra(webintent.EXTRA_TEXT,
+				function (url) {
+					if(url !== "" && url != null) {
+						// url is the url the intent was launched with
+						alert("Intent2: " +  url);
+						
+						inAppBrowserRef = cordova.InAppBrowser.open('https://www.yaaw.de/?url=' + url, '_blank', options);
+					}
+				}, function() { 
+					// There was no extra supplied.       
+				});
 			
 			
 		}
