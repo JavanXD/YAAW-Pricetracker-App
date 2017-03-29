@@ -21,6 +21,7 @@
 		<activity
 		android:label="YAAW.de" 
 		android:name="de.javan.yaaw.YAAW_de"
+		android:launchMode="singleTop"
 		android:screenOrientation="unspecified"
 		android:configChanges="locale|keyboard|keyboardHidden|orientation|screenSize"
 		>

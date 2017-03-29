@@ -5,12 +5,12 @@
 		}
 		
 		var inAppBrowserRef; 
+		var options = "location=no,hidden=yes,zoom=no,clearsessioncache=no,clearcache=no"; // start in hidden mode
 		
 		function onDeviceReady() {
 
 			window.open = cordova.InAppBrowser.open;
 			
-			var options = "location=no,hidden=yes,zoom=no,clearsessioncache=no,clearcache=no"; // start in hidden mode
 			inAppBrowserRef = cordova.InAppBrowser.open('https://www.yaaw.de/?utm_source=phonegapapp', '_blank', options);
 			
 			inAppBrowserRef.addEventListener('loadstart', loadStartCallBack);
@@ -75,6 +75,9 @@
 				if(url !== "" && url != null) {
 					// url is the url the intent was launched with
 					alert(url);
+					
+					inAppBrowserRef.open('https://www.yaaw.de/list.html?url=' + url, '_blank', options);
+			
 				}
 			});
 			
@@ -82,6 +85,8 @@
 				if(url !== "" && url != null) {
 					// url is the url the intent was launched with
 					alert(url);
+					
+					inAppBrowserRef.open('https://www.yaaw.de/list.html?url=' + url, '_blank', options);
 				}
 			}, function() { //Fail
 				  alert ("error");          
