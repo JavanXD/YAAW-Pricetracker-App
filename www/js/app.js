@@ -90,7 +90,7 @@
 				}
 			});
 			
-			window.plugins.webintent.getExtra(webintent.EXTRA_TEXT,
+			window.plugins.webintent.getExtra(WebIntent.EXTRA_TEXT,
 				function (url) {
 					if(url !== "" && url != null) {
 						// url is the url the intent was launched with
