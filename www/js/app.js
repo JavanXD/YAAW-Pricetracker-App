@@ -11,7 +11,19 @@
 
 			window.open = cordova.InAppBrowser.open;
 			
-			inAppBrowserRef = cordova.InAppBrowser.open('https://www.yaaw.de/?utm_source=phonegapapp', '_blank', options);
+			window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT,
+				function (url) {
+					if(url !== "" && url != null) {
+						// url is the url the intent was launched with
+						alert(url);
+						inAppBrowserRef = cordova.InAppBrowser.open('https://www.yaaw.de/index?url=' + encodeURIComponent(url), '_blank', options);
+					}
+				}, function() { 
+					// There was no extra supplied.
+
+					inAppBrowserRef = cordova.InAppBrowser.open('https://www.yaaw.de/index?utm_source=phonegapapp', '_blank', options);
+			
+				});
 			
 			inAppBrowserRef.addEventListener('loadstart', loadStartCallBack);
 			inAppBrowserRef.addEventListener('loadstop', loadStopCallBack);
@@ -66,46 +78,4 @@
 			vibration(100);
 		}
 		
-		
-		
-		function deviceReady() {
-			
-			// Receive intent from another app
-			window.plugins.webintent.getUri(function(url) {
-				if(url !== "" && url != null) {
-					// url is the url the intent was launched with
-					alert("Intent1: " +  url);
-					
-					inAppBrowserRef = cordova.InAppBrowser.open('https://www.yaaw.de/?url=' + url, '_blank', options);
-			
-				}
-			});
-			
-			
-			window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT,
-				function (url) {
-					if(url !== "" && url != null) {
-						// url is the url the intent was launched with
-						alert("Intent2: " +  url);
-						
-						inAppBrowserRef = cordova.InAppBrowser.open('https://www.yaaw.de/?url=' + url, '_blank', options);
-					}
-				}, function() { 
-					// There was no extra supplied.       
-				});
-				
-			
-			window.plugins.webintent.onNewIntent(function(url) {
-				if(url !== "" && url != null) {
-					// url is the url the intent was launched with
-					alert("Intent3: " +  url);
-					
-					inAppBrowserRef = cordova.InAppBrowser.open('https://www.yaaw.de/?url=' + url, '_blank', options);
-				}
-			});
-			
-			
-		}
-		
-		document.addEventListener("deviceready",deviceReady,false);
 		
