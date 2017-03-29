@@ -81,16 +81,8 @@
 				}
 			});
 			
-			window.plugins.webintent.onNewIntent(function(url) {
-				if(url !== "" && url != null) {
-					// url is the url the intent was launched with
-					alert("Intent3: " +  url);
-					
-					inAppBrowserRef = cordova.InAppBrowser.open('https://www.yaaw.de/?url=' + url, '_blank', options);
-				}
-			});
 			
-			window.plugins.webintent.getExtra(WebIntent.EXTRA_TEXT,
+			window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT,
 				function (url) {
 					if(url !== "" && url != null) {
 						// url is the url the intent was launched with
@@ -101,6 +93,16 @@
 				}, function() { 
 					// There was no extra supplied.       
 				});
+				
+			
+			window.plugins.webintent.onNewIntent(function(url) {
+				if(url !== "" && url != null) {
+					// url is the url the intent was launched with
+					alert("Intent3: " +  url);
+					
+					inAppBrowserRef = cordova.InAppBrowser.open('https://www.yaaw.de/?url=' + url, '_blank', options);
+				}
+			});
 			
 			
 		}

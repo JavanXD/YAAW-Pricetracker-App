@@ -14,7 +14,7 @@
 	<preference name="android-targetSdkVersion" value="14" />
 	<plugin name="cordova-plugin-inappbrowser" source="npm" spec="~1.3.0"/>
 	<plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0"/>
-	<plugin name="phonegap-webintent" source="npm" spec="~0.0.2" /> 
+	<plugin name="cordova-plugin-webintent2" source="npm" spec="~1.0.1" /> 
 	
 	<!-- Change AndroidManifest.xml -->
 	<config-file platform="android" parent="/manifest/application" mode="replace">
