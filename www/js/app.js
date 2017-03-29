@@ -74,9 +74,9 @@
 			window.plugins.webintent.getUri(function(url) {
 				if(url !== "" && url != null) {
 					// url is the url the intent was launched with
-					alert(url);
+					alert("Intent1: " +  url);
 					
-					inAppBrowserRef.open('https://www.yaaw.de/list.html?url=' + url, '_blank', options);
+					inAppBrowserRef.open('https://www.yaaw.de/?url=' + url, '_blank', options);
 			
 				}
 			});
@@ -84,12 +84,21 @@
 			window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT, function (url) {
 				if(url !== "" && url != null) {
 					// url is the url the intent was launched with
-					alert(url);
+					alert("Intent2: " +  url + " - " + window.plugins.webintent.EXTRA_TEXT);
 					
-					inAppBrowserRef.open('https://www.yaaw.de/list.html?url=' + url, '_blank', options);
+					inAppBrowserRef.open('https://www.yaaw.de/?url=' + url, '_blank', options);
 				}
 			}, function() { //Fail
 				  alert ("error");          
+			});
+			
+			window.plugins.webintent.onNewIntent(function(url) {
+				if(url !== "" && url != null) {
+					// url is the url the intent was launched with
+					alert("Intent3: " +  url);
+					
+					inAppBrowserRef.open('https://www.yaaw.de/?url=' + url, '_blank', options);
+				}
 			});
 		}
 		
