@@ -11,7 +11,7 @@
 		function onDeviceReady() {
 			
 			window.open = cordova.InAppBrowser.open;
-				
+			
 			inAppBrowserRef = cordova.InAppBrowser.open(openUrl, '_self', options);
 			
 			inAppBrowserRef.addEventListener('loadstart', loadStartCallBack);
@@ -25,7 +25,7 @@
 						// url is the value of EXTRA_TEXT
 						alert(url);
 						openUrl = 'https://www.yaaw.de/list?url=' + encodeURIComponent(url) + '&utm_source=phonegapapp';
-						inAppBrowserRef = cordova.InAppBrowser.open(openUrl, '_self', options);
+						document.href = openUrl;
 					}
 				}, function () { 
 					// There was no extra supplied. 					
