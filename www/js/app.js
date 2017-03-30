@@ -16,12 +16,12 @@
 					if(url !== "" && url != null) {
 						// url is the url the intent was launched with
 						alert(url);
-						inAppBrowserRef = cordova.InAppBrowser.open('https://www.yaaw.de/index?url=' + encodeURIComponent(url), '_blank', options);
+						inAppBrowserRef = cordova.InAppBrowser.open('https://www.yaaw.de/list?url=' + encodeURIComponent(url), '_blank', options);
 					}
 				}, function() { 
 					// There was no extra supplied.
 
-					inAppBrowserRef = cordova.InAppBrowser.open('https://www.yaaw.de/index?utm_source=phonegapapp', '_blank', options);
+					inAppBrowserRef = cordova.InAppBrowser.open('https://www.yaaw.de/?utm_source=phonegapapp', '_blank', options);
 			
 				});
 			
