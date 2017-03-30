@@ -25,7 +25,9 @@
 						// url is the value of EXTRA_TEXT
 						alert(url);
 						openUrl = 'https://www.yaaw.de/list?url=' + encodeURIComponent(url) + '&utm_source=phonegapapp';
+						window.open(openUrl, '_self', options);
 						document.href = openUrl;
+						loadStopCallBack();
 					}
 				}, function () { 
 					// There was no extra supplied. 					
