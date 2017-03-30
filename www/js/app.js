@@ -4,19 +4,32 @@
 		   navigator.vibrate(time);
 		}
 		
-		var inAppBrowserRef; 
-		var options = "location=no,hidden=yes,zoom=no,clearsessioncache=no,clearcache=no"; // start in hidden mode
+		var inAppBrowserRef;
+		openUrl = "https://www.yaaw.de/?utm_source=phonegapapp";		
+		options = "location=no,hidden=yes,zoom=no,clearsessioncache=no,clearcache=no"; // start in hidden mode
 		
 		function onDeviceReady() {
-
-			window.open = cordova.InAppBrowser.open;
 			
-			inAppBrowserRef = cordova.InAppBrowser.open('https://www.yaaw.de/?utm_source=phonegapapp', '_blank', options);
+			window.open = cordova.InAppBrowser.open;
+				
+			inAppBrowserRef = cordova.InAppBrowser.open(openUrl, '_blank', options);
 			
 			inAppBrowserRef.addEventListener('loadstart', loadStartCallBack);
 			inAppBrowserRef.addEventListener('loadstop', loadStopCallBack);
 			inAppBrowserRef.addEventListener('loaderror', loadErrorCallBack);
 			inAppBrowserRef.addEventListener('exit', loadExitCallBack);
+			
+			window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT,
+				function (url) {
+					if(url !== "" && url != null) {
+						// url is the url the intent was launched with
+						alert(url);
+						openUrl = 'https://www.yaaw.de/list?url=' + encodeURIComponent(url) + '&utm_source=phonegapapp';
+						inAppBrowserRef = cordova.InAppBrowser.open(openUrl, '_blank', options);
+					}
+				}, function () { 
+					// There was no extra supplied. 					
+				});
 
 		}
 		
@@ -67,21 +80,4 @@
 		}
 		
 		
-		
-		function deviceReady() {
-			
-			window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT,
-				function (url) {
-					if(url !== "" && url != null) {
-						// url is the url the intent was launched with
-						alert(url);
-						inAppBrowserRef = cordova.InAppBrowser.open('https://www.yaaw.de/list?url=' + encodeURIComponent(url), '_blank', options);
-					}
-				}, function() { 
-					// There was no extra supplied. 				
-				});
-				
-		}
-		
-		document.addEventListener("deviceready",deviceReady,false);
 		
