@@ -19,17 +19,7 @@
 			inAppBrowserRef.addEventListener('loaderror', loadErrorCallBack);
 			inAppBrowserRef.addEventListener('exit', loadExitCallBack);
 			
-			window.plugins.webintent.onNewIntent(
-				function(url) {
-					if(url !== "" && url != null) {
-						alert(url);
-						openUrl = 'https://www.yaaw.de/list?url=' + encodeURIComponent(url) + '&utm_source=phonegapapp';
-						window.open(openUrl, '_blank', options);
-						loadStopCallBack();
-					}
-				}
-			);
-			
+		
 			window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT,
 				function (url) {
 					if(url !== "" && url != null) {

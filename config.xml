@@ -26,7 +26,6 @@
 		android:noHistory="true"
 		android:configChanges="locale|keyboard|keyboardHidden|orientation|screenSize"
 		>
-		<!-- android:launchMode="singleTop" -->
 		
 			<!-- App im Menü -->
 			<intent-filter>
