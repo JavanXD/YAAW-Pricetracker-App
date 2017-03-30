@@ -12,7 +12,7 @@
 			
 			window.open = cordova.InAppBrowser.open;
 			
-			inAppBrowserRef = cordova.InAppBrowser.open(openUrl, '_self', options);
+			inAppBrowserRef = cordova.InAppBrowser.open(openUrl, '_blank', options);
 			
 			inAppBrowserRef.addEventListener('loadstart', loadStartCallBack);
 			inAppBrowserRef.addEventListener('loadstop', loadStopCallBack);
@@ -23,10 +23,9 @@
 				function (url) {
 					if(url !== "" && url != null) {
 						// url is the value of EXTRA_TEXT
-						alert(url);
+						//alert(url);
 						openUrl = 'https://www.yaaw.de/list?url=' + encodeURIComponent(url) + '&utm_source=phonegapapp';
-						window.open(openUrl, '_self', options);
-						document.href = openUrl;
+						window.open(openUrl, '_blank', options);
 						loadStopCallBack();
 					}
 				}, function () { 
