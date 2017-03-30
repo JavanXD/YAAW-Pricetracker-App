@@ -22,7 +22,7 @@
 		android:label="YAAW.de" 
 		android:name="de.javan.yaaw.YAAW_de"
 		android:screenOrientation="unspecified"
-		android:launchMode="singleTask"
+		android:launchMode="singleTop"
 		android:configChanges="locale|keyboard|keyboardHidden|orientation|screenSize"
 		>
 		<!-- android:launchMode="singleTop" -->

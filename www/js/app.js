@@ -34,7 +34,7 @@
 			);
 			
 			window.plugins.webintent.onNewIntent(function(url) {
-				if(url !== "") {
+				if(url !== "" && url != null) {
 					//alert(url);
 					openUrl = 'https://www.yaaw.de/list?url=' + encodeURIComponent(url) + '&utm_source=phonegapapp';
 					window.open(openUrl, '_blank', options);
