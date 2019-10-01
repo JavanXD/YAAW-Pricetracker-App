@@ -12,6 +12,7 @@
 	<preference name="android-minSdkVersion" value="16" />
     <preference name="android-targetSdkVersion" value="28" />
 
+    <plugin name="cordova-plugin-android-support-v4" source="npm" spec="~21.0.1"/>
 	<plugin name="cordova-plugin-inappbrowser" source="npm" spec="~3.1.0"/>
 	<plugin name="cordova-plugin-vibration" source="npm" spec="~3.1.1"/>
 	<plugin name="cordova-plugin-webintent2" source="npm" spec="~1.0.4" />
