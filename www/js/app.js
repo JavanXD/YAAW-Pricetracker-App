@@ -26,7 +26,7 @@
 						// sharing is the value of EXTRA_TEXT
 						//alert(sharing);
 						url = "http" + sharing.split('http')[1];
-						openUrl = 'https://www.yaaw.de/list?url=' + encodeURIComponent(url) + '&utm_source=phonegapapp';
+						openUrl = 'https://www.yaaw.de/list.html?url=' + encodeURIComponent(url) + '&utm_source=phonegapapp';
 						window.open(openUrl, '_blank', options);
 						loadStopCallBack();
 					}
