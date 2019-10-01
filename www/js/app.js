@@ -21,10 +21,11 @@
 
 
 			window.plugins.webintent.getExtra(window.plugins.webintent.EXTRA_TEXT,
-				function (url) {
-					if(url !== "" && url != null) {
-						// url is the value of EXTRA_TEXT
-						//alert(url);
+				function (sharing) {
+					if(sharing !== "" && sharing != null) {
+						// sharing is the value of EXTRA_TEXT
+						//alert(sharing);
+						url = "http" + sharing.split('http')[1];
 						openUrl = 'https://www.yaaw.de/list?url=' + encodeURIComponent(url) + '&utm_source=phonegapapp';
 						window.open(openUrl, '_blank', options);
 						loadStopCallBack();
