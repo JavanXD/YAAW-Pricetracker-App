@@ -1,46 +1,45 @@
-<?xml version='1.0' encoding='utf-8'?>
-<widget id="de.javan.yaaw" version="1.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="de.javan.yaaw" version="1.0.4" >
     <name>YAAW.de</name>
-    <description>
-        YAAW ist ein Preisbeobachter für Amazon, der dich über positive Preisveränderungen deiner Wunschprodukte informiert.
-    </description>
-    <author email="support@javan.de" href="https://javan.de">
-        Javan Rasokat
-    </author>
+    <description>YAAW.de ist ein Preisbeobachter für Amazon, der dich über positive Preisveränderungen deiner Wunschprodukte informiert.</description>
+    <author email="apps@javan.de" href="https://javan.de">Javan Rasokat</author>
     <content src="index.html" />
+
     <access origin="*" />
+
 	<preference name="DisallowOverscroll" value="true"/>
-	<preference name="android-minSdkVersion" value="11" /> 
-	<preference name="android-targetSdkVersion" value="14" />
+
+	<preference name="android-minSdkVersion" value="16" />
+    <preference name="android-targetSdkVersion" value="28" />
+
 	<plugin name="cordova-plugin-inappbrowser" source="npm" spec="~1.3.0"/>
 	<plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0"/>
-	<plugin name="cordova-plugin-webintent2" source="npm" spec="~1.0.1" /> 
-	
+	<plugin name="cordova-plugin-webintent2" source="npm" spec="~1.0.1" />
+
 	<!-- Change AndroidManifest.xml -->
 	<config-file platform="android" parent="/manifest/application" mode="replace">
 		<activity
-		android:label="YAAW.de" 
+		android:label="YAAW.de"
 		android:name="de.javan.yaaw.YAAW_de"
 		android:screenOrientation="unspecified"
 		android:launchMode="singleInstance"
 		android:noHistory="true"
 		android:configChanges="locale|keyboard|keyboardHidden|orientation|screenSize"
 		>
-		
 			<!-- App im Menü -->
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 			<!-- Share empfangen -->
-			<intent-filter> 
+			<intent-filter>
 				<action android:name="android.intent.action.SEND" />
 				<category android:name="android.intent.category.DEFAULT" />
 				<data android:mimeType="text/plain" />
-			</intent-filter> 
+			</intent-filter>
 		</activity>
 	</config-file>
-	
+
 	<icon src="icon.png"/>
 	<platform name="ios">
         <icon src="res/icons/ios/icon-small.png" width="29" height="29" />
